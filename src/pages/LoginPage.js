@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function LoginPage({ onLogin }) {
     const [isLogin, setIsLogin] = useState(true);
-    const [usuario, setUsuario] = useState('');
+    const [correo, setCorreo] = useState('');
     const [password, setPassword] = useState('');
     const [nombre, setNombre] = useState('');
     const [apellidos, setApellidos] = useState('');
@@ -11,30 +11,30 @@ function LoginPage({ onLogin }) {
     const handleLogin = (e) => {
         e.preventDefault();
         const users = JSON.parse(localStorage.getItem('users') || '[]');
-        const user = users.find(u => u.usuario === usuario && u.password === password);
+        const user = users.find(u => u.correo === correo && u.password === password);
         
         if (user) {
             localStorage.setItem('currentUser', JSON.stringify(user));
             onLogin(user);
         } else {
-            setError('Usuario o contraseña incorrectos');
+            setError('Correo o contraseña incorrectos');
         }
     };
 
     const handleRegister = (e) => {
         e.preventDefault();
-        if (!usuario || !password || !nombre || !apellidos) {
+        if (!correo || !password || !nombre || !apellidos) {
             setError('Completa todos los campos');
             return;
         }
         
         const users = JSON.parse(localStorage.getItem('users') || '[]');
-        if (users.find(u => u.usuario === usuario)) {
-            setError('El usuario ya existe');
+        if (users.find(u => u.correo === correo)) {
+            setError('El correo ya está registrado');
             return;
         }
         
-        const newUser = { usuario, password, nombre, apellidos };
+        const newUser = { correo, password, nombre, apellidos };
         users.push(newUser);
         localStorage.setItem('users', JSON.stringify(users));
         localStorage.setItem('currentUser', JSON.stringify(newUser));
@@ -90,8 +90,8 @@ function LoginPage({ onLogin }) {
                 {isLogin ? (
                     <form onSubmit={handleLogin}>
                         <div style={{ marginBottom: '20px' }}>
-                            <label style={{ color: 'white', display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>USUARIO</label>
-                            <input type="text" value={usuario} onChange={(e) => setUsuario(e.target.value)} required style={{ width: '100%', padding: '12px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.2)', backgroundColor: 'rgba(255,255,255,0.1)', color: 'white', fontSize: '1rem' }} />
+                            <label style={{ color: 'white', display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>CORREO</label>
+                            <input type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} required style={{ width: '100%', padding: '12px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.2)', backgroundColor: 'rgba(255,255,255,0.1)', color: 'white', fontSize: '1rem' }} />
                         </div>
                         <div style={{ marginBottom: '20px' }}>
                             <label style={{ color: 'white', display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>CONTRASEÑA</label>
@@ -110,8 +110,8 @@ function LoginPage({ onLogin }) {
                             <input type="text" value={apellidos} onChange={(e) => setApellidos(e.target.value)} required style={{ width: '100%', padding: '12px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.2)', backgroundColor: 'rgba(255,255,255,0.1)', color: 'white', fontSize: '1rem' }} />
                         </div>
                         <div style={{ marginBottom: '20px' }}>
-                            <label style={{ color: 'white', display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>USUARIO</label>
-                            <input type="text" value={usuario} onChange={(e) => setUsuario(e.target.value)} required style={{ width: '100%', padding: '12px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.2)', backgroundColor: 'rgba(255,255,255,0.1)', color: 'white', fontSize: '1rem' }} />
+                            <label style={{ color: 'white', display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>CORREO</label>
+                            <input type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} required style={{ width: '100%', padding: '12px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.2)', backgroundColor: 'rgba(255,255,255,0.1)', color: 'white', fontSize: '1rem' }} />
                         </div>
                         <div style={{ marginBottom: '20px' }}>
                             <label style={{ color: 'white', display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>CONTRASEÑA</label>
