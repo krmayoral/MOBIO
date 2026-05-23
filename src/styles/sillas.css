@@ -1,0 +1,70 @@
+#sillas {
+    color: orange;
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.texto-box {
+    width: 85%;
+    margin: 30px auto;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    line-height: 1.8;
+}
+
+.sillas1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    width: 90%;
+    margin: auto;
+}
+
+.logo-mobio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+#mobio {
+    color: orange;
+    font-size: 3rem;
+}
+
+.formulario {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+}
+
+.formulario input {
+    padding: 10px;
+    width: 250px;
+    border-radius: 10px 0 0 10px;
+    border: none;
+}
+
+.formulario button {
+    padding: 10px 15px;
+    border: none;
+    background-color: orange;
+    color: white;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    #sillas {
+        font-size: 2rem;
+    }
+    
+    #mobio {
+        font-size: 2rem;
+    }
+}

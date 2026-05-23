@@ -1,0 +1,53 @@
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+#mesas-escritorios {
+    color: orange;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+.mesasescritorios1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.whatsApp-informacion {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    width: 90%;
+    margin: auto;
+    align-items: start;
+}
+
+#productos {
+    color: white;
+    line-height: 1.8;
+}
+
+.info-box h3 {
+    color: orange;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .whatsApp-informacion {
+        grid-template-columns: 1fr;
+    }
+    
+    #titulo {
+        font-size: 2.5rem;
+    }
+}
